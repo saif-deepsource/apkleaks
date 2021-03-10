@@ -54,13 +54,12 @@ class APKLeaks:
 				self.write("Do you want to download jadx? (Y/n) ", clr.OKBLUE)
 				choice = input().lower()
 				if choice == "":
-					choice = valid["y"]
-					break
-				elif choice in valid:
-					choice = valid[choice]
-					break
-				else:
-					self.writeln("\nPlease respond with 'yes' or 'no' (or 'y' or 'n').", clr.WARNING)
+				    choice = valid["y"]
+				    break
+				if choice in valid:
+				    choice = valid[choice]
+				    break
+				self.writeln("\nPlease respond with 'yes' or 'no' (or 'y' or 'n').", clr.WARNING)
 			if choice:
 				self.writeln("** Downloading jadx...\n", clr.OKBLUE)
 				self.dependencies()
