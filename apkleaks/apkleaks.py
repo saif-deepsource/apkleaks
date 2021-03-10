@@ -111,7 +111,7 @@ class APKLeaks:
 
 	def extract(self, name, matches):
 		output = open(self.output, "a+")
-		if len(matches):
+		if matches:
 			stdout = ("[%s]" % (name))
 			self.writeln("\n" + stdout, clr.OKGREEN)
 			output.write(stdout + "\n")
