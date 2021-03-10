@@ -65,17 +65,17 @@ class APKLeaks:
 				self.writeln("** Downloading jadx...\n", clr.OKBLUE)
 				self.dependencies()
 			else:
-				exit(self.writeln("Aborted.", clr.FAIL))
+				sys.exit(self.writeln("Aborted.", clr.FAIL))
 
 		if os.path.isfile(self.file) is True:
 			try:
 				self.apk = self.apk_info()
 			except Exception as e:
-				exit(self.writeln(str(e), clr.WARNING))
+				sys.exit(self.writeln(str(e), clr.WARNING))
 			else:
 				return self.apk
 		else:
-			exit(self.writeln("It's not a valid file!", clr.WARNING))
+			sys.exit(self.writeln("It's not a valid file!", clr.WARNING))
 
 	def decompile(self):
 		self.writeln("** Decompiling APK...", clr.OKBLUE)
@@ -85,7 +85,7 @@ class APKLeaks:
 				with open(dex, "wb") as classes:
 					classes.write(zipped.read("classes.dex"))
 			except Exception as e:
-				exit(self.writeln(str(e), clr.WARNING))
+				sys.exit(self.writeln(str(e), clr.WARNING))
 		dec = "%s %s -d %s --deobf" % (self.jadx, dex, self.tempdir)
 		os.system(dec)
 		return self.tempdir
