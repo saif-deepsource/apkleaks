@@ -13,7 +13,6 @@ import numpy
 import os
 import re
 import shutil
-import stat
 import sys
 import tempfile
 import threading
