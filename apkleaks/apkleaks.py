@@ -37,7 +37,6 @@ class APKLeaks:
 			with ZipFile(io.BytesIO(jadx.read())) as zfile:
 				zfile.extractall(self.main_dir + "/../jadx")
 		os.chmod(self.jadx, 33268)
-		return
 
 	def write(self, message, color):
 		sys.stdout.write("%s%s%s" % (color, message, clr.ENDC))
